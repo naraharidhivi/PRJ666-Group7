@@ -3,7 +3,7 @@
     { "source": "/", "destination": "/WelcomePage/iOS dev.html" },
     { "source": "/Login", "destination": "/LandingPage/Login.html" },
     { "source": "/Reset", "destination": "/LandingPage/Reset.html" },
-    { "source": "/Sign up", "destination": "/LandingPage/Sign up.html" },
+    { "source": "/Sign-Up", "destination": "/LandingPage/Sign up.html" },
     { "source": "/UI", "destination": "/LandingPage/UI.html" },
     { "source": "/Certificate", "destination": "/CertificatePage/index.html" },
     {
