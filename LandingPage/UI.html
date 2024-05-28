@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Spline Sans Mono", Arial, sans-serif;
+        background: url("../assets/Untitled.png") no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: white;
+        text-align: center;
+      }
+      .container {
+        text-align: center;
+      }
+      h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+      }
+      .button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 1em;
+        color: #000000;
+        background: white;
+        border: 2px solid white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+      }
+      .button:hover {
+        background: #007bff;
+        color: white;
+        border: 2px solid #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Profile</h1>
+      <button class="button" onclick="location.href='login.html'">Login</button>
+      <button class="button" onclick="location.href='sign up.html'">
+        Sign up
+      </button>
+    </div>
+  </body>
+</html>
