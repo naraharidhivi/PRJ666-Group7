@@ -117,7 +117,11 @@
       </button>
     </div>
     <div class="certificate-container" id="certificateContainer">
-      <img src="certificate.png" alt="Certificate" class="certificate-image" />
+      <img
+        src="../assets/certificate.png"
+        alt="Certificate"
+        class="certificate-image"
+      />
       <div class="certificate-header">CERTIFICATE OF ACHIEVEMENT</div>
       <div class="certificate-subheader">
         This certificate is proudly presented to
@@ -147,7 +151,7 @@
         html2canvas(container).then(function (canvas) {
           const link = document.createElement("a");
           link.href = canvas.toDataURL("image/png");
-          link.download = "certificate.png";
+          link.download = "../assets/certificate.png";
           link.click();
         });
       }
