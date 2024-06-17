@@ -5,6 +5,7 @@
     { "source": "/Reset", "destination": "/LandingPage/Reset.html" },
     { "source": "/Sign-Up", "destination": "/LandingPage/Sign up.html" },
     { "source": "/UI", "destination": "/LandingPage/UI.html" },
+    { "source": "/Content", "destination": "/ContentPage/contentpage.html" },
     {
       "source": "/Certificate",
       "destination": "/CertificatePage/certificate.html"
