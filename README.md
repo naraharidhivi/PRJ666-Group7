@@ -56,22 +56,6 @@ The purpose of DevFusion is to provide aspiring students and professionals with 
    8. **UI/UXD Interface Mock-ups**
       Mock-ups illustrate the welcome page, user account page, sign-up/register account page, and activity diagrams for user actions, providing a visual representation of the proposed interface.
 
-3. **Process & Data Modeling**
-
-   1. **UML/DFD Modeling and Data Modeling**
-      This section includes activity diagrams, data flow diagrams, business rules, and use case specifications to depict the system's processes and data flow.
-
-4. **Work Breakdown Structure (WBS)**
-   A detailed work breakdown structure outlines the project's tasks, subtasks, milestones, and acceptance criteria, ensuring a structured approach to project management and execution.
-
-5. **Milestones & Acceptance Criteria**
-   Milestones are defined with corresponding acceptance criteria, enabling the team to track progress and ensure alignment with project objectives.
-
-6. **Implementation Schedule**
-   The implementation schedule, whether using MS Project (Waterfall) or product backlog (Agile-Scrum), provides a timeline for executing project tasks and delivering milestones.
-
-7. **Client / Faculty Sign-off**
-   A signature block is provided for client or faculty sign-off, ensuring stakeholder agreement and approval of the project plan.
 
 ## Task Updates
 
@@ -82,53 +66,19 @@ Integrated email verification functionality.
 Pending: Testing and debugging.
 
 **Password Reset Functionality:**
-Designed the password reset interface.
-Implemented email notification for password reset.
-Tested and fixed validation issues.
-Pending: Finalizing UI improvements based on feedback.
+Designed the frontend part of it and navigation is complted. Currently working on the backend part
 
 **Course Content Management:**
-Completed the database schema for course content.
-Implemented CRUD operations for course modules.
-Integrated file upload functionality for resources.
-Pending: Fine-tuning search and sorting features.
+in-progress
 
 **Test Taking Module:**
-Designed the test interface and question bank.
-Implemented answer submission and scoring logic.
-Conducted initial testing for functionality.
-Pending: Enhancing user feedback and result display.
+in-progress
+
+**Certificate generation:**
+frontend page creation is done, currently working on the downloading certificate and backend generation.
 
 **Progress Overview:**
-Overall, the project has made significant strides in developing key functionalities essential for the DevFusion platform. The user registration module is nearly complete, with backend validation and email verification mechanisms in place. The password reset feature is functional, awaiting final UI enhancements. Course content management has progressed well, with database setup and CRUD operations implemented. The test-taking module has been designed and partially implemented, with scoring logic and basic functionality tested successfully.
-
-<!--
-1. **Account Management Module**
-   - **Status:** Completed
-   - **Description:** Implemented secure registration and sign-in processes.
-   - **Next Steps:** Enhance profile customization features.
-
-2. **Curated Course Offerings**
-   - **Status:** In Progress
-   - **Description:** Developing detailed course listings with previews.
-   - **Next Steps:** Finalize course previews functionality.
-
-3. **Engaging Learning Modules**
-   - **Status:** Ongoing
-   - **Description:** Integrating diverse content formats.
-   - **Next Steps:** Implement interactive coding challenges.
-
-4. **Customized Progress Monitoring**
-   - **Status:** Pending
-   - **Description:** Dashboard development planned for progress tracking.
-   - **Next Steps:** Design achievement and milestone features. -->
-
-<!-- ## Progress Overview
-
-- **Functional Requirements:** Majority of functionalities either completed or in progress.
-- **Nonfunctional Requirements:** Efforts ongoing to meet operational, performance, and security requirements.
-- **System Risks:** Mitigation strategies in place for identified risks.
-- **Operating Environment:** Details to be provided as development progresses. -->
+So far, we have been focusing on the frontend part of the project. User registration and password resetting are completed, as well as the creation and navigation of the home page. We are currently working on the course contents and tests. Additionally, the feedback page has been created, and the submission functionality with the backend is in progress. Next, we will proceed with the backend development.
 
 ## Next Steps
 
@@ -136,11 +86,6 @@ Overall, the project has made significant strides in developing key functionalit
 Conduct comprehensive testing for all modules.
 Identify and resolve any bugs or issues.
 Ensure cross-browser compatibility and responsiveness.
-
-**User Feedback and Iteration:**
-Gather feedback from beta testers and stakeholders.
-Incorporate feedback to improve usability and functionality.
-Iterate on UI/UX based on user input.
 
 **Documentation and Training:**
 Prepare user documentation and tutorials.
