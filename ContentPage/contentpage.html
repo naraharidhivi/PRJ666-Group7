@@ -198,15 +198,15 @@
       <div>
         <label>
           <input type="checkbox" id="checkbox-9" disabled />
-          <span id="topic-9-label">Testing and debugging iOS applications</span>
+          <span id="topic-9-label"
+            >Mobile app permissions model Local notifications</span
+          >
         </label>
       </div>
       <div>
         <label>
           <input type="checkbox" id="checkbox-10" disabled />
-          <span id="topic-10-label"
-            >Deploying iOS applications to the App Store</span
-          >
+          <span id="topic-10-label">Location Services and Mapping</span>
         </label>
       </div>
     </div>
@@ -273,11 +273,11 @@
         <!-- Add content here -->
       </div>
       <div id="content-9" class="content-section">
-        <h2>Testing and debugging iOS applications</h2>
+        <h2>Mobile app permissions model Local notifications</h2>
         <!-- Add content here -->
       </div>
       <div id="content-10" class="content-section">
-        <h2>Deploying iOS applications to the App Store</h2>
+        <h2>Location Services and Mapping</h2>
         <!-- Add content here -->
         <button class="btn-complete" onclick="checkCompletion()">
           Complete
@@ -357,7 +357,7 @@
           }
         });
         if (allChecked) {
-          window.location.href = "/TestPage";
+          window.location.href = "completion.html"; // Redirect to completion page
         } else {
           alert("Please complete all topics before proceeding.");
         }
