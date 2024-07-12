@@ -13,7 +13,7 @@
         margin: 0;
         padding: 0;
         font-family: "Spline Sans Mono", Arial, sans-serif;
-        background: url("../assets/Untitled.png") no-repeat center center fixed;
+        background: url("/assets/Untitled.png") no-repeat center center fixed;
         background-size: cover;
         display: flex;
         justify-content: center;
@@ -59,40 +59,70 @@
       #signup-form a {
         color: #007bff;
         text-decoration: none;
-        display: block;
+        
         margin-top: 10px;
       }
       #signup-form a:hover {
         text-decoration: underline;
       }
+
       .terms {
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        justify-content: start;
-        margin-top: 10px;
+        white-space: nowrap;
       }
-      .terms input {
-        margin-right: 5px;
+
+      #signup-form .terms input {
+        margin-right: 10px;
+      }
+
+      .error-message {
+        color: #ff4d4d;
+        background-color: #ffe6e6;
+        border: 1px solid #ff4d4d;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+      }
+      .success-message {
+        color: #4dff4d;
+        background-color: #e6ffe6;
+        border: 1px solid #4dff4d;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
       }
     </style>
   </head>
   <body>
     <div id="signup-form">
       <h2>Sign up</h2>
-      <button class="button">Sign up with Google</button>
-      <form>
-        <input type="text" placeholder="Enter Your Full Name" required />
-        <input type="email" placeholder="Enter Your Email Address" required />
-        <input type="password" placeholder="At least 8 characters" required />
-        <div class="terms">
-          <input type="checkbox" id="terms" />
-          <label for="terms"
-            >I agree with <a href="#">Terms</a> and
-            <a href="#">Privacy</a></label
-          >
-        </div>
+      
+      <% if(!successMessage) { %>
+      <form method="post" action="/Sign-Up">
+        <input type="text" name="name" placeholder="Enter Your Full Name" required />
+        <input type="email" name="email" placeholder="Enter Your Email Address" value="<%= email? email : '' %>" required />
+        <input type="password" name="password" placeholder="At least 8 characters" required />
+        <span class="terms">
+          <input type="checkbox" id="terms" name="terms" />
+          <label for="terms">I agree with <a href="#">Terms</a> and <a href="#">Privacy</a></label>
+        </span>
         <button type="submit">Sign up</button>
       </form>
+      <% if(errorMessage) { %>
+        <div class="error-message">
+          <span><%= errorMessage %></span>
+        </div>
+      <% } %>
+      <% } else { %>
+        <!-- Success Message -->
+        <div class="alert">
+          <span><%= successMessage %></span>
+        </div><br />
+        <a href="/Login" class="btn btn-success">
+          <button>Proceed to Log in</button>
+        </a>
+      <% } %>
     </div>
   </body>
 </html>

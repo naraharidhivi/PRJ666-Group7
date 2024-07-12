@@ -13,7 +13,7 @@
         margin: 0;
         padding: 0;
         font-family: "Spline Sans Mono", Arial, sans-serif;
-        background: url("../assets/Untitled.png") no-repeat center center fixed;
+        background: url("/assets/Untitled.png") no-repeat center center fixed;
         background-size: cover;
         display: flex;
         justify-content: center;
@@ -56,16 +56,41 @@
       #reset-form button:hover {
         background: #0056b3;
       }
+
+      .error-message {
+        color: #ff4d4d;
+        background-color: #ffe6e6;
+        border: 1px solid #ff4d4d;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+      }
+
     </style>
   </head>
   <body>
     <div id="reset-form">
       <h2>Reset Password</h2>
-      <form>
-        <input type="email" placeholder="Enter Your Email Address" required />
-        <input type="password" placeholder="Enter Your New Password" required />
+      <% if(!successMessage) { %>
+      <form method="post" action="/Reset">
+        <input type="email" name="email" placeholder="Enter Your Email Address" required />
+        <input type="password" name="password" placeholder="Enter Your New Password" required />
         <button type="submit">Reset Password</button>
       </form>
+      <% if(errorMessage) { %>
+        <div class="error-message">
+          <span><%= errorMessage %></span>
+        </div>
+      <% } %>
+      <% } else { %>
+        <!-- Success Message -->
+        <div class="alert">
+          <span><%= successMessage %></span>
+        </div><br />
+        <a href="/Login" class="btn btn-success">
+          <button>Proceed to Log in</button>
+        </a>
+      <% } %>
     </div>
   </body>
 </html>

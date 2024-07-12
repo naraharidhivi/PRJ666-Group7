@@ -13,7 +13,7 @@
         margin: 0;
         padding: 0;
         font-family: "Spline Sans Mono", Arial, sans-serif;
-        background: url("../assets/Untitled.png") no-repeat center center fixed;
+        background: url("/assets/Untitled.png") no-repeat center center fixed;
         background-size: cover;
         display: flex;
         justify-content: center;
@@ -65,21 +65,52 @@
       #login-form a:hover {
         text-decoration: underline;
       }
+      .remember-me {
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+      }
+
+      #login-form .remember-me input {
+        margin-right: 10px;
+      }
+
+      .error-message {
+        color: #ff4d4d;
+        background-color: #ffe6e6;
+        border: 1px solid #ff4d4d;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+      }
+      .success-message {
+        color: #4dff4d;
+        background-color: #e6ffe6;
+        border: 1px solid #4dff4d;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+      }
+
     </style>
   </head>
   <body>
     <div id="login-form">
       <h2>Log in</h2>
-      <button class="button">Log in with Google</button>
-      <form>
-        <input type="email" placeholder="Enter Your Email Address" required />
-        <input type="password" placeholder="Enter Your Password" required />
-        <div class="remember-me">
+      <form method="post" action="/Login" >
+        <input type="email" name="email" value="<%= email? email : '' %>" placeholder="Enter Your Email Address" required />
+        <input type="password" name="password" placeholder="Enter Your Password" required />
+        <span class="remember-me">
           <input type="checkbox" id="remember-me" />
           <label for="remember-me">Remember Me</label>
-        </div>
+        </span>
         <button type="submit">Log in</button>
       </form>
+      <% if(errorMessage) { %>
+        <div class="error-message">
+          <span><%= errorMessage %></span>
+        </div>
+      <% } %>
       <a href="/Reset">Forgot Password?</a>
     </div>
   </body>

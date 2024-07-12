@@ -114,7 +114,7 @@
     </div>
     <div class="certificate-container" id="certificateContainer">
       <img
-        src="../assets/certificate.png"
+        src="/assets/certificate.png"
         alt="Certificate"
         class="certificate-image"
       />
@@ -147,7 +147,7 @@
         html2canvas(container).then(function (canvas) {
           const link = document.createElement("a");
           link.href = canvas.toDataURL("image/png");
-          link.download = "../assets/certificate.png";
+          link.download = "/assets/certificate.png";
           link.click();
         });
       }
