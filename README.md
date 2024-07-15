@@ -46,17 +46,17 @@ Completed
 Completed
 
 **Course Content Management:**
-Navigation and tracking completed
-Adding content in-progress
+navigation and tracking completed
+contents added
 
 **Test Taking Module:**
-in-progress
+completed
 
 **Certificate generation:**
-frontend page creation is done, currently working on the downloading certificate and backend generation.
+certificate generation completed, working on doenloading certificate 
 
 **User Feedback**
-Completed the frontend design, working on the backend sunbission
+completed
 
 **Progress Overview:**
 Completed the "remember me" functionality
@@ -72,8 +72,8 @@ System can successfuly save the progress
 |User Sign-in/registration      |              Pass                           |
 |User Login                     |              Pass                           |
 |Reset Password                 |              Pass                           |
-|User feedback for website      |                                             |
-|Course contents page           |              Pass (Navigation and tracking) |
+|User feedback for website      |              Pass                           |
+|Course contents page           |              Pass                           |
 |Final Test                     |                                             |
 |Generating certificate         |                                             |
 
