@@ -74,7 +74,7 @@ System can successfuly save the progress
 |Reset Password                 |              Pass                           |
 |User feedback for website      |              Pass                           |
 |Course contents page           |              Pass                           |
-|Final Test                     |                                             |
+|Final Test                     |              Pass                           |
 |Generating certificate         |                                             |
 
 ## Next Steps
