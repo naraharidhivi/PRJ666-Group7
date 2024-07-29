@@ -75,7 +75,7 @@ System can successfuly save the progress
 |User feedback for website      |              Pass                           |
 |Course contents page           |              Pass                           |
 |Final Test                     |              Pass                           |
-|Generating certificate         |                                             |
+|Generating certificate         |              Pass                           |
 
 ## Next Steps
 
