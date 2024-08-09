@@ -63,6 +63,10 @@ Completed the "remember me" functionality
 User can continue from where they left 
 System can successfuly save the progress
 
+**Project Testing**
+completed
+
+
 ** System Testing**
 
 |Functions                      |            Results                          |
@@ -78,16 +82,6 @@ System can successfuly save the progress
 |Generating certificate         |              Pass                           |
 
 ## Next Steps
-
-**Testing and Quality Assurance:**
-Conduct comprehensive testing for all modules.
-Identify and resolve any bugs or issues.
-Ensure cross-browser compatibility and responsiveness.
-
-**Documentation and Training:**
-Prepare user documentation and tutorials.
-Create training materials for administrators.
-Conduct training sessions for end-users.
 
 **Deployment and Launch:**
 Finalize deployment strategy and server setup.
