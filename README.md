@@ -67,7 +67,7 @@ System can successfuly save the progress
 completed
 
 
-** System Testing**
+**System Testing**
 
 |Functions                      |            Results                          |
 |-------------------------------|---------------------------------------------|
