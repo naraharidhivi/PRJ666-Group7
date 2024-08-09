@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Instructions</title>
+    <style>
+        body {
+        margin: 0;
+        padding: 0;
+        font-family: "Spline Sans Mono", Arial, sans-serif;
+        background: url("/assets/Untitled.png") no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        justify-content: center;
+      }
+      .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #000000cb;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+      .container h1 {
+            font-size: 28px;
+            /* color: #333; */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .instructions {
+            margin-bottom: 20px;
+        }
+        .instructions h2 {
+            font-size: 24px;
+            /* color: #555; */
+            margin-bottom: 10px;
+        }
+        .instructions ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .instructions li {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Online Quiz - Test Instructions</h1>
+        <% if (progress < 10) { %>
+            <div class="message">Complete the course to take the test.</div>
+            <a href="/Content" class="button">Proceed to Course</a>
+        <% } else if (progress == 10) { %>
+          <div class="instructions">
+            <h2>Instructions:</h2>
+            <ul>
+                <li>There are unlimited attempts.</li>
+                <li>No time limit.</li>
+                <li>All questions are compulsory.</li>
+                <li>All are multiple-choice questions with only one correct answer.</li>
+                <li>No negative marking.</li>
+                <li>There are 10 questions in total.</li>
+                <li>Minimum 80% is required to pass.</li>
+            </ul>
+          </div>
+            <a href="/test" class="button">Start Test</a>
+        <% } %>
+    </div>
+</body>
+</html>

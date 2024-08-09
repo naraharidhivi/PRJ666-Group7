@@ -1,0 +1,87 @@
+<h2>
+  Designing screens with UIKit: Common UI controls Labels, TextField,
+  Button, Switch, Image, etc
+</h2>
+    <p>Designing user interfaces for iOS apps with UIKit involves utilizing a wide range of UI controls to create </p>
+    <p> engaging and intuitive applications. Here's an introduction to some of the most common UI controls like Labels,</p>
+    <p>TextFields, Buttons, Switches, and Images, alongside examples of how to use them in Swift using Xcode.</p>
+    
+    <div class="section">
+        <div class="title">1. Labels (UILabel)</div>
+        <p>Labels are used for displaying static text. You can use them to show data that doesn't need to be edited by the user.</p>
+        <div class="code">
+            let label = UILabel();<br>
+            label.frame = CGRect(x: 20, y: 20, width: 300, height: 40);<br>
+            label.text = "Hello, UIKit!";<br>
+            label.textAlignment = .center;<br>
+            self.view.addSubview(label);
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="title">2. TextFields (UITextField)</div>
+        <p>TextFields allow users to enter and edit text. They are suitable for gathering input from the user, like names, addresses, or passwords.</p>
+        <div class="code">
+            let textField = UITextField();<br>
+            textField.frame = CGRect(x: 20, y: 80, width: 300, height: 40);<br>
+            textField.placeholder = "Enter text here";<br>
+            textField.borderStyle = .roundedRect;<br>
+            self.view.addSubview(textField);
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="title">3. Buttons (UIButton)</div>
+        <p>Buttons trigger actions when tapped. You can use them to submit forms, navigate to another screen, or any action you want to perform.</p>
+        <div class="code">
+            let button = UIButton(type: .system);<br>
+            button.frame = CGRect(x: 20, y: 140, width: 300, height: 40);<br>
+            button.setTitle("Press Me", for: .normal);<br>
+            button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside);<br>
+            self.view.addSubview(button);<br><br>
+            @objc func buttonAction() {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print("Button tapped");<br>
+            }
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="title">4. Switches (UISwitch)</div>
+        <p>Switches offer a binary choice, like turning settings on or off. They provide an easy way to make selections in your app.</p>
+        <div class="code">
+            let switchControl = UISwitch();<br>
+            switchControl.frame = CGRect(x: 20, y: 200, width: 0, height: 0);<br>
+            switchControl.addTarget(self, action: #selector(switchChanged), for: .valueChanged);<br>
+            self.view.addSubview(switchControl);<br><br>
+            @objc func switchChanged(_ sender: UISwitch) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if sender.isOn {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Switch is ON");<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Switch is OFF");<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            }
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="title">5. Images (UIImageView)</div>
+        <p>Images can be used to display photos, icons, or any graphical content. UIImageView is used to add images to your app.</p>
+        <div class="code">
+            let imageView = UIImageView();<br>
+            imageView.frame = CGRect(x: 20, y: 260, width: 100, height: 100);<br>
+            imageView.image = UIImage(named: "exampleImage");<br>
+            self.view.addSubview(imageView);
+        </div>
+    </div>
+
+    <div class="tips">
+        <h2>Tips for Designing UI with UIKit:</h2>
+        <ul>
+            <li><strong>Auto Layout:</strong> Use Auto Layout to make your UI flexible and adaptive to different screen sizes and orientations.</li>
+            <li><strong>Asset Catalogs:</strong> Use asset catalogs to manage your images and icons efficiently, ensuring they are optimized <br>for all device resolutions.</li>
+            <li><strong>UI Components Customization:</strong> UIKit allows extensive customization of UI components. Explore properties like <br> backgroundColor, font, textColor, and more to tailor the look and feel of your UI elements.</li>
+            <li><strong>MVC Pattern:</strong> Adhere to the Model-View-Controller (MVC) pattern to keep your code organized <br> 
+              and maintainable. This separation of concerns makes it easier to manage and extend your app.</li>
+        </ul>
+        
+    </div>

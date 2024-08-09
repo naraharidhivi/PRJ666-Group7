@@ -1,0 +1,211 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Spline Sans Mono", Arial, sans-serif;
+        background: url("Untitled.png") no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+      .feedback-container {
+        background: rgba(0, 0, 0, 0.7);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        width: 80%;
+        max-width: 600px;
+        text-align: center;
+      }
+      .feedback-container h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+      }
+      .comment-box {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        font-family: "Spline Sans Mono", Arial, sans-serif;
+        resize: vertical; /* Allow vertical resizing of textarea */
+      }
+      .stars {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .stars input {
+        display: none;
+      }
+      .stars label {
+        font-size: 2em;
+        color: gray;
+        cursor: pointer;
+      }
+      .stars input:checked ,
+      .stars label:hover {
+        color: gold;
+      }
+      .submit-button {
+        display: flex;
+        float: right;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      .submit-button:hover {
+        background-color: #45a049;
+      }
+      *{
+    margin: 0;
+    padding: 0;
+}
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+.comment-box {
+      background-color: #333; /* Dark background for comment box */
+      color: white;
+    }
+
+
+    </style>
+  </head>
+  
+  <!-- <body>
+    <div class="feedback-container">
+      <h1>Feedback</h1>
+      <form id="feedbackForm" action="/home" method="get"> 
+        <textarea
+          class="comment-box"
+          id="comment"
+          name="comment"
+          placeholder="Add comments..."
+          rows="4"
+          required
+        ></textarea>
+        <div class="rate">
+          <input type="radio" id="star5" name="rate" value="5" />
+          <label for="star5" title="text">5 stars</label>
+          <input type="radio" id="star4" name="rate" value="4" />
+          <label for="star4" title="text">4 stars</label>
+          <input type="radio" id="star3" name="rate" value="3" />
+          <label for="star3" title="text">3 stars</label>
+          <input type="radio" id="star2" name="rate" value="2" />
+          <label for="star2" title="text">2 stars</label>
+          <input type="radio" id="star1" name="rate" value="1" />
+          <label for="star1" title="text">1 star</label>
+        </div>
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      // Optional JavaScript validation example (you can add more detailed validation as needed)
+      const form = document.getElementById('feedbackForm');
+      form.addEventListener('submit', function(event) {
+        const comment = document.getElementById('comment').value.trim();
+        const rating = document.querySelector('.rate input:checked');
+        
+        if (!comment || !rating) {
+          alert('Please provide both a comment and a rating.');
+          event.preventDefault(); // Prevent form submission if validation fails
+        }
+      });
+
+      
+    </script>
+  </body>
+  </html> -->
+  <body>
+    <div class="feedback-container">
+      <h1>Feedback</h1>
+      <form id="feedbackForm" action="/Feedback" method="post">
+        <textarea
+          class="comment-box"
+          id="comment"
+          name="comment"
+          placeholder="Add comments..."
+          rows="4"
+          required
+        ><%= feedback ? feedback.message : '' %></textarea>
+  
+        <div class="rate">
+          <% for(let i = 5; i >= 1; i--) { %>
+            <input type="radio" id="star<%= i %>" name="rate" value="<%= i %>" <%= feedback && feedback.rating == i ? 'checked' : '' %> />
+            <label for="star<%= i %>" title="text"><%= i %> star<%= i > 1 ? 's' : '' %></label>
+          <% } %>
+        </div>
+  
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+    </div>
+  
+    <script>
+      // JavaScript validation example (you can add more detailed validation as needed)
+      const form = document.getElementById('feedbackForm');
+      form.addEventListener('submit', function(event) {
+        const comment = document.getElementById('comment').value.trim();
+        const rating = document.querySelector('.rate input:checked');
+        
+        if (!comment || !rating) {
+          alert('Please provide both a comment and a rating.');
+          event.preventDefault(); // Prevent form submission if validation fails
+        }
+      });
+    </script>
+  </body>
+  </html>

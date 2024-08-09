@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Spline Sans Mono", Arial, sans-serif;
+        background: url("/assets/Untitled.png") no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: white;
+        text-align: center;
+      }
+      #signup-form {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 30px 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        width: 90%;
+        max-width: 400px;
+      }
+      #signup-form h2 {
+        margin: 0;
+        margin-bottom: 20px;
+      }
+      #signup-form input {
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      #signup-form button {
+        padding: 15px 20px;
+        font-size: 1em;
+        color: white;
+        background: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+        width: 100%;
+      }
+      #signup-form button:hover {
+        background: #0056b3;
+      }
+      #signup-form a {
+        color: #007bff;
+        text-decoration: none;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+      #signup-form a:hover {
+        text-decoration: underline;
+      }
+
+      .terms {
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+      }
+
+      #signup-form .terms input {
+        margin-right: 10px;
+      }
+
+      .error-message {
+        color: #ff4d4d;
+        background-color: #ffe6e6;
+        border: 1px solid #ff4d4d;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+      }
+      .success-message {
+        color: #4dff4d;
+        background-color: #e6ffe6;
+        border: 1px solid #4dff4d;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        background-color: #333;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        color: white;
+        border-radius: 10px;
+      }
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .close:hover,
+      .close:focus {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="signup-form">
+      <h2>Sign up</h2>
+
+      <% if (!successMessage) { %>
+      <form method="post" action="/Sign-Up">
+        <input type="text" name="name" placeholder="Enter Your Full Name" required />
+        <input type="email" name="email" placeholder="Enter Your Email Address" value="<%= email ? email : '' %>" required />
+        <input type="password" name="password" placeholder="At least 8 characters" required />
+        <span class="terms">
+          <input type="checkbox" id="terms" name="terms" />
+          <label for="terms">
+            I agree with
+            <a id="terms-link">Terms</a> and
+            <a id="privacy-link">Privacy</a>
+          </label>
+        </span>
+        <button type="submit">Sign up</button>
+      </form>
+      <% if (errorMessage) { %>
+      <div class="error-message">
+        <span><%= errorMessage %></span>
+      </div>
+      <% } %>
+      <% } else { %>
+      <!-- Success Message -->
+      <div class="alert">
+        <span><%= successMessage %></span>
+      </div>
+      <br />
+      <a href="/Login" class="btn btn-success">
+        <button>Proceed to Log in</button>
+      </a>
+      <% } %>
+    </div>
+
+    <!-- Terms & Privacy Modal -->
+    <div id="termsModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="termsClose">&times;</span>
+        <h2>Terms and Conditions</h2>
+        <p style="text-align: justify;">By accessing and using our website, you agree to comply with these terms and conditions. All content, including text, graphics, and images, is for informational purposes only and is the property of our company. Unauthorized use, reproduction, or distribution of this content is prohibited. We reserve the right to modify or discontinue any part of the website without notice. You agree not to engage in any activity that could harm our website or interfere with other users' access. Your use of this site is at your own risk, and we are not liable for any damages resulting from your use of the website. Continued use signifies acceptance of these terms.</p>
+      </div>
+    </div>
+
+    <div id="privacyModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="privacyClose">&times;</span>
+        <h2>Privacy Policy</h2>
+        <p style="text-align: justify;">Your privacy is important to us. We are committed to protecting your personal information and ensuring its confidentiality. Any data you provide, including your name, email address, and other details, will be securely stored and used solely for the purposes of providing our services to you. We do not share your information with third parties without your explicit consent, except as required by law. Our website may use cookies to enhance your experience, but these do not collect personally identifiable information. By using our services, you agree to this privacy policy. If you have any questions or concerns, please contact us.</p>
+      </div>
+    </div>
+
+    <script>
+      // Get the modal elements
+      var termsModal = document.getElementById("termsModal");
+      var privacyModal = document.getElementById("privacyModal");
+
+      // Get the link elements
+      var termsLink = document.getElementById("terms-link");
+      var privacyLink = document.getElementById("privacy-link");
+
+      // Get the <span> elements that close the modal
+      var termsClose = document.getElementById("termsClose");
+      var privacyClose = document.getElementById("privacyClose");
+
+      // Open the Terms modal
+      termsLink.onclick = function () {
+        termsModal.style.display = "flex";
+      };
+
+      // Open the Privacy modal
+      privacyLink.onclick = function () {
+        privacyModal.style.display = "flex";
+      };
+
+      // Close the modals
+      termsClose.onclick = function () {
+        termsModal.style.display = "none";
+      };
+
+      privacyClose.onclick = function () {
+        privacyModal.style.display = "none";
+      };
+
+      // Close the modal if the user clicks outside of it
+      window.onclick = function (event) {
+        if (event.target == termsModal) {
+          termsModal.style.display = "none";
+        }
+        if (event.target == privacyModal) {
+          privacyModal.style.display = "none";
+        }
+      };
+    </script>
+  </body>
+</html>

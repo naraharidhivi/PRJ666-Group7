@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Test - MCQ Questions</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            background-image: url('/assets/Untitled.png'); /* Path to your background image */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* White background with 90% opacity */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .question {
+            display: none;
+            text-align: left;
+            
+        }
+        .question p {
+            font-size: 1.2em;
+            padding: 10px;
+        }
+        label {
+            display: block;
+            border: 1px solid #0f0f0f;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .warning {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .prev-button {
+            background-color: #f0ad4e;
+            color: white;
+        }
+        .next-button {
+            background-color: #5bc0de;
+            color: white;
+            flex-direction: column;
+            
+        }
+        .submit-button {
+            background-color: #5cb85c;
+            color: white;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Final Test</h1>
+        <form id="testForm" action="/result" method="POST">
+            <% questions.forEach((question, index) => { %>
+                <div class="question" style="display: <%= index === 0 ? 'block' : 'none' %>;">
+                    <p><strong><%= index + 1 %>. <%= question.text %> </strong></p>
+                    <% question.options.forEach((option, optionIndex) => { %>
+                        <label>
+                            <input type="radio" name="answer_<%= index %>" value="<%= optionIndex + 1 %>" <% if (req.body && req.body['answer_' + index] == optionIndex) { %> checked <% } %>>
+                            <%= option %>
+                        </label>
+                    <% }) %>
+                    <div class="warning" id="warning_<%= index %>"></div>
+                    <hr>
+                    <div class="button-container">
+                        <% if (index > 0) { %>
+                            <button type="button" class="prev-button" onclick="showQuestion(<%= index - 1 %>);">Previous</button>
+                        <% } %>
+                        <% if (index < questions.length - 1) { %>
+                            <button type="button" class="next-button" onclick="nextQuestion(<%= index %>);">Next</button>
+                        <% } else { %>
+                            <button type="button" class="submit-button" onclick="submitForm(<%= index %>);" id="submitBtn">Submit</button>
+                        <% } %>
+                    </div>
+                </div>
+            <% }) %>
+        </form>
+    </div>
+    <script>
+        // JavaScript to handle navigation between questions
+        function showQuestion(index) {
+            var questions = document.querySelectorAll('.question');
+            for (var i = 0; i < questions.length; i++) {
+                questions[i].style.display = 'none';
+            }
+            questions[index].style.display = 'block';
+        }
+
+        // Function to handle Next button click
+        function nextQuestion(currentIndex) {
+            var answerSelected = false;
+            var options = document.querySelectorAll('input[name="answer_' + currentIndex + '"]');
+            options.forEach(function(option) {
+                if (option.checked) {
+                    answerSelected = true;
+                }
+            });
+
+            if (answerSelected) {
+                showQuestion(currentIndex + 1);
+                clearWarning(currentIndex);
+            } else {
+                displayWarning(currentIndex, "Please select an option before proceeding to the next question.");
+            }
+        }
+
+        // Function to display warning message
+        function displayWarning(index, message) {
+            var warningDiv = document.getElementById('warning_' + index);
+            warningDiv.textContent = message;
+        }
+
+        // Function to clear warning message
+        function clearWarning(index) {
+            var warningDiv = document.getElementById('warning_' + index);
+            warningDiv.textContent = '';
+        }
+
+        // Function to handle form submission
+        function submitForm(currentIndex) {
+            var answerSelected = false;
+            var options = document.querySelectorAll('input[name="answer_' + currentIndex + '"]');
+            options.forEach(function(option) {
+                if (option.checked) {
+                    answerSelected = true;
+                }
+            });
+
+            if (answerSelected) {
+                document.getElementById('testForm').submit();
+            } else {
+                displayWarning(currentIndex, "Please select an option before submitting the test.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<h2>Navigation and navigation design patterns</h2>
+  
+<p>In iOS development with Swift, navigation is key to providing a good user experience. It helps in moving users between different <br> parts of your application seamlessly. Here's a brief overview of navigation and some common navigation design patterns in Swift for <br> Xcode.</p>
+<div class="section">
+  <div class="page-title">Basic Navigation Concepts</div>
+  <ul>
+    <li>Navigation Controllers: A stack-like structure that manages the navigation between views. It's ideal for apps with a <br> hierarchical content structure. You push and pop view controllers to and from the navigation stack.</li>
+    <div class="code">
+      if let viewController = UIStoryboard (name: "Main", bundle: nil).instantiateViewController (withIdentifier: <br>
+      "YourViewControllerID") as? YourViewController { <br>
+      navigationController?.pushViewController (viewController, animated: true) <br>
+      } <br>
+    </div>
+    <li>Tab Bar Controllers: Used for organizing different content areas or functionalities of your app into tabs. Each tab can <br> contain its own navigation controller.</li>
+    <div class="code">
+      let firstViewController = FirstViewController() <br>
+      firstViewController.tabBarltem = UITabBarltem (tabBarSystemitem: .favorites, tag: 0) <br>
+
+      let secondViewController = SecondViewController() <br>
+      secondViewController.tabBarltem = UITabBaritem (tabBarSystemitem: .contacts, tag: 1) <br>
+
+      let tabBarViewController = UITabBarController() <br>
+      tabBarViewController.viewControllers = [firstViewController, secondViewController] <br>
+
+      window?.rootViewController = tabBarViewController <br>
+    </div>
+  </ul>
+
+  <div class="page-title">Navigation Design Patterns</div>
+  <ol>
+    <li>Hierarchical Navigation: Best for apps where content is organized at multiple levels. Users navigate down the hierarchy <br> to get more detailed information and navigate back up to explore other branches.</li>
+    <li>Flat Navigation: Works well for apps with no hierarchical relationships between views. Tab bars and segmented controls <br> are common UI elements used to implement flat navigation.</li>
+    <li>Content-Driven or Modal Navigation: Used when you need to present a new content or action without leaving the current <br> context. Modal views are presented using presentation controllers or by using the present(_:animated:completion:) method on view controllers.</li>
+  </ol>
+  <div class="code">
+    if let modalViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: <br>
+"ModalViewControllerID") as? ModalViewController { <br>
+
+}             present(modalViewController, animated: true, completion: nil) <br>
+  </div>
+</div>

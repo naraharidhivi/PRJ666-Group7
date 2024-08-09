@@ -1,0 +1,38 @@
+<h2>Delegates: Pickers and TableViews</h2>
+<div class="screenshot">
+  <img src="/assets/content7.png" alt="Delegates" />
+</div>
+<br>
+<div class="section">
+  <p>Conform to the <code>UIPickerViewDataSource</code> and <code>UIPickerViewDelegate</code> protocols to implement <code>PickerView</code></p>
+  <div class="code">
+      class ViewController: UIViewController { ... }<br>
+      class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate { ... }
+  </div>
+  <div class="code">
+      // DATASOURCE<br>
+      func numberOfComponents(in pickerView: UIPickerView) -&gt; Int {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;// return the number of columns you need<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;return 1<br>
+      }<br><br>
+      func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -&gt; Int {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;// return the number of rows you need in a column<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;return countries.count<br>
+      }
+  </div>
+  <div class="code">
+      // DELEGATE<br>
+      func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -&gt; String? {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;// return the title for each row<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;return countries[row]<br>
+      }
+  </div>
+  <p>How to know when a row was selected?</p>
+  <div class="code">
+      // DELEGATE<br>
+      func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;// do something here when a row is selected<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;countryLabel.text = countries[row]<br>
+      }
+  </div>
+</div>

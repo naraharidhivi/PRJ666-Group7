@@ -1,0 +1,102 @@
+[
+  {
+      "text": "Which is the valid declaration for variable?",
+      "options": [
+          "var a: String = 'a'",
+          "var b='a'",
+          "String b='a'",
+          "let c= 'b'"
+      ],
+      "answer": 1
+  },
+  {
+      "text": "Which method is called when a view controller is loaded into memory but hasn't appeared yet?",
+      "options": [
+          "viewDidLoad()",
+          "viewWillAppear()",
+          "viewDidAppear()",
+          "viewWillDisappear()"
+      ],
+      "answer": 1
+  },
+  {
+      "text": "What is used to manage the app's content in a hierarchical structure in iOS?",
+      "options": [
+          "StackView",
+          "Navigation Controller",
+          "TableView",
+          "ScrollView"
+      ],
+      "answer": 1
+  },
+  {
+      "text": "Which framework is primarily used for constructing UIs in iOS?",
+      "options": [
+          "UIKit",
+          "SwiftUI",
+          "Foundation",
+          "Core Data"
+      ],
+      "answer": 1
+  },
+  {
+      "text": "How do you handle memory management in Swift?",
+      "options": [
+          "Garbage Collection",
+          "Manual Retain-Release",
+          "Automatic Reference Counting (ARC)",
+          "Reference Delegation"
+      ],
+      "answer": 1
+  },
+  {
+      "text": "What is a closure in Swift?",
+      "options": [
+          "A type of loop",
+          "A self-contained block of functionality",
+          "A method",
+          "A data type"
+      ],
+      "answer": 1
+  },
+  {
+      "text": "Which of the following allows you to perform a task asynchronously in Swift?",
+      "options": [
+          "sync",
+          "await",
+          "Dispatch Queue",
+          "NSThread"
+      ],
+      "answer": 1
+  },
+  {
+      "text": "What is an optional in Swift?",
+      "options": [
+          "A variable that can only have a value or nil",
+          "A constant value",
+          "A variable that must always have a value",
+          "A type that cannot be returned from a function"
+      ],
+      "answer": 1
+  },
+  {
+      "text": "In iOS development, which property is used to adjust the layout of views relative to the safe areas?",
+      "options": [
+          "edgesForExtendedLayout",
+          "safeAreaLayoutGuide",
+          "layoutMargins",
+          "adjustsScrollViewInsets"
+      ],
+      "answer": 1
+  },
+  {
+    "text": "What is a protocol in Swift?",
+    "options": [
+        "A blueprint of methods, properties, and other requirements that suit a particular task or piece of functionality",
+        "A type of loop",
+        "A method for defining classes and structs",
+        "A built-in data type"
+    ],
+    "answer": 1
+  }
+]

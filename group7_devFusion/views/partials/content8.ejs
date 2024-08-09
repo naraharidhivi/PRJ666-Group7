@@ -1,0 +1,45 @@
+<h2>Creating and using databases in iOS applications</h2>
+<p>Creating and using databases is a fundamental aspect of iOS app development when you need to persistently store data.</p>
+<p>Here are the basics of setting up and using databases in Swift for Xcode, focusing on two popular approaches: Core Data <br> and SQLite.</p>
+
+<div class="section">
+    <div class="page-title">Core Data</div>
+    <p>Core Data is a framework provided by Apple that allows iOS developers to manage the model layer objects in their <br> applications. It's not a database itself but works on top of SQLite (by default) to manage data efficiently.</p>
+    <ul>
+    <li><strong>Setup:</strong> Use the Xcode template for a new project and check the "Use Core Data" option, or manually add a Core Data <br>stack to your existing project.</li>
+    <li><strong>Define Data Model:</strong> Use the Data Model Editor in Xcode to define your entities (tables) and attributes (fields).</li>
+    <li><strong>CRUD Operations:</strong> Use NSManagedObjectContext to create, read, update, and delete records. Core Data handles the <br> underlying SQL operations for you.</li>
+  </ul>
+    <div class="code">
+        // Example: Adding a new record<br><br>
+        let newItem = EntityName(context: managedContext)<br><br>
+        newItem.attribute = value<br><br>
+        do {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;try managedContext.save()<br>
+        } catch let error as NSError {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;print("Could not save. \(error), \(error.userInfo)")<br>
+        }
+    </div>
+</div>
+
+<div class="section">
+    <div class="page-title">SQLite</div>
+    <p>SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database <br>engine. You can directly use SQLite in your Swift applications or via a wrapper like SQLite.swift for more Swift-friendly <br> syntax.</p>
+    <ul>
+      <li><strong>Setup:</strong> Include the SQLite library in your project. For direct usage, use the SQLite3 C API. For a more Swift-like <br> experience, use a wrapper like SQLite.swift.</li>
+    <li><strong>Create Database and Tables:</strong> Open a connection to the database and execute SQL statements to create tables.</li>
+    <li><strong>CRUD Operations:</strong> Execute SQL queries to insert, query, update, and delete records.</li>
+    </ul>
+    
+    <div class="code">
+        // Example: Creating a table with SQLite.swift<br><br>
+        let db = try Connection("path_to_db.sqlite3")<br><br>
+        let users = Table("users")<br><br>
+        let id = Expression<Int64>("id")<br>
+        let name = Expression<String>("name")<br><br>
+        try db.run(users.create { t in<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;t.column(id, primaryKey: true)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;t.column(name)<br>
+        })
+    </div>
+</div>

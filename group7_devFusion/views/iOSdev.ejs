@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iOS Development Course</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Spline Sans Mono", Arial, sans-serif;
+        background: url("/assets/Untitled.png") no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+      }
+      .header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.7);
+      }
+      .header .user-icon,
+      .header .user-text {
+        font-size: 1.2em;
+        cursor: pointer;
+        transition: color 0.3s, transform 0.3s;
+      }
+      .header .user-icon {
+        font-size: 2em;
+        margin-right: 10px;
+      }
+      .header .user-icon:hover,
+      .header .user-text:hover {
+        color: #007bff;
+        transform: scale(1.1);
+      }
+      .content {
+        text-align: left;
+        max-width: 800px;
+        margin: 100px auto;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+      .content h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+      }
+      .content p {
+        font-size: 1.2em;
+        line-height: 1.5em;
+      }
+      .content ul {
+        list-style-type: disc;
+        margin-left: 20px;
+      }
+      .button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1em;
+        color: #000000;
+        background: white;
+        border: 2px solid white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+      }
+      .button:hover {
+        background: #007bff;
+        color: white;
+        border: 2px solid #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="user-icon" onclick="location.href='/UI'">
+        👤
+      </div>
+      <div class="user-text" onclick="location.href='/UI'">
+        User
+      </div>
+    </div>
+    <div class="content">
+      <h1>Welcome to iOS Development</h1>
+      <p>
+        This course will provide you with an introduction to building mobile
+        apps for iOS using Swift. By the end of the course, you should feel
+        comfortable:
+      </p>
+      <ul>
+        <li>Developing, testing, and deploying a mobile application in iOS</li>
+        <li>Designing a layout and UI interactions for a mobile app</li>
+        <li>Navigating the user to different screens of an app</li>
+        <li>Adding data persistence to an app</li>
+        <li>Working with iOS simulators</li>
+      </ul>
+      <a href="/Home" class="button">Learn More</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate of Achievement</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f4f4f4;
+        }
+        .certificate {
+            text-align: center;
+            padding: 20px;
+            width: 400px;
+            height: 275px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.8);
+            position: relative;
+        }
+        .certificate canvas {
+            width: 100%;
+            height: 100%;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .home-button {
+            background-color: #5bc0de;
+            color: white;
+        }
+        .download-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <canvas id="certificateCanvas"></canvas>
+        <div class="buttons">
+          <button class="download-btn" onclick="downloadCertificate()">Download Certificate</button>
+          <a href="/Home" class="button home-button">Go to Homepage</a>
+      </div>
+    </div>
+
+    <script>
+        const userName = "<%= userName %>";
+        const canvas = document.getElementById('certificateCanvas');
+        const ctx = canvas.getContext('2d');
+        const backgroundImage = new Image();
+        backgroundImage.src = '/assets/certificate.png'; // Replace with your actual background image path
+
+        backgroundImage.onload = () => {
+            canvas.width = backgroundImage.width;
+            canvas.height = backgroundImage.height;
+
+            // Draw background image
+            ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+
+            // Draw text
+            ctx.fillStyle = '#000';
+            ctx.textAlign = 'center';
+
+            ctx.font = 'bold 170px TitleFont';
+            ctx.fillText('CERTIFICATE OF ACHIEVEMENT', canvas.width / 2, canvas.height / 7);
+
+            ctx.font = '96px Arial';
+            ctx.fillText('This certificate is proudly presented to', canvas.width / 2, canvas.height / 4.5);
+
+            ctx.font = 'bold 240px NameFont';
+            ctx.fillText(userName, canvas.width / 2, canvas.height / 2.5);
+
+            ctx.font = '96px Arial';
+            ctx.fillText('We certify that this user has successfully completed', canvas.width / 2, (canvas.height / 1.9));
+            ctx.fillText('a certification of iOS development.', canvas.width / 2, (canvas.height / 1.9) + 96);
+        };
+
+        function downloadCertificate() {
+            const link = document.createElement('a');
+            link.download = 'certificate.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+    </script>
+</body>
+</html>

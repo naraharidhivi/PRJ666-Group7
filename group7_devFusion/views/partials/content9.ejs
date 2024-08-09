@@ -1,0 +1,24 @@
+<h2>Mobile app permissions model Local notifications</h2>
+<div class="section"> 
+  <p>In iOS app development, managing permissions is crucial for accessing certain device features like location <br> services, camera, and notifications. When it comes to local notifications, which are used to notify users about <br> events with the app even when it's not running in the foreground, you need to request permission from the user <br> to send notifications. Here's a basic overview of handling permissions for local notifications in Swift using Xcode:</p>
+  
+  <div class="title">Requesting Permission</div>
+  <p>Before your app can schedule local notifications, you need to ask the user for permission. This is done using the <br>
+    <code>UNUserNotificationCenter</code> class.</p>
+  
+  <div class="code">
+      import UserNotifications<br><br>
+      func requestNotificationPermission() {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;let center = UNUserNotificationCenter.current()<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if granted {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Permission granted for notifications")<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Permission denied for notifications")<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+      }
+  </div>
+  
+  <p>The <code>requestAuthorization(options:completionHandler:)</code> method asks the user for permission to display alerts, play <br> sounds, or set the app's badge number. You should call this method early in your app's lifecycle, typically when the <br> app is first launched.</p>
+</div>

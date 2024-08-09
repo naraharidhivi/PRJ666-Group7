@@ -1,0 +1,35 @@
+<h2>Handling user events with outlets and actions</h2>
+
+<div class="section">
+    <div class="page-title">Responding to User Events</div>
+    <p>To respond to different user events, you can configure your actions to listen for specific events:</p>
+    <div class="code">
+        @IBAction func switchValueChanged(_ sender: UISwitch) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if sender.isOn {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view.backgroundColor = .lightGray;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view.backgroundColor = .white;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        }
+    </div>
+    <p>In this example, an action is configured to respond to the value change event of a UISwitch. Depending on the <br> switch's state, it changes the background color of the view.</p>
+</div>
+
+<div class="tips">
+    <h2>Practical Tips</h2>
+    <ul>
+        <li>Reuse actions: You can connect multiple UI components to the same action if they should trigger the same <br> behavior.</li>
+        <li>Use tags: If multiple UI components use the same action, use the tag property to distinguish between them <br> within the action method.</li>
+        <li>Leverage gesture recognizers: For more complex interactions like swipes or pinches, use gesture recognizers <br> and connect them to actions in your view controller.</li>
+    </ul>
+</div>
+
+<div class="tips">
+    <h2>Interactive Quiz App:</h2>
+    <ul>
+      <li>Create a quiz app with multiple choice questions. Display a question along with several answer buttons.</li>
+      <li>Use outlets to display the question and result, and actions to handle button tap events to check the answer and <br> move to the next question.</li>
+    </ul>
+</div>
+
+

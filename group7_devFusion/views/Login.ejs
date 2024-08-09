@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Spline Sans Mono", Arial, sans-serif;
+        background: url("/assets/Untitled.png") no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: white;
+        text-align: center;
+      }
+      #login-form {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 30px 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        width: 90%;
+        max-width: 400px;
+      }
+      #login-form h2 {
+        margin: 0;
+        margin-bottom: 20px;
+      }
+      #login-form input {
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      #login-form button {
+        padding: 15px 20px;
+        font-size: 1em;
+        color: white;
+        background: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+        width: 100%;
+      }
+      #login-form button:hover {
+        background: #0056b3;
+      }
+      #login-form a {
+        color: #007bff;
+        text-decoration: none;
+        display: block;
+        margin-top: 10px;
+      }
+      #login-form a:hover {
+        text-decoration: underline;
+      }
+      .remember-me {
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+      }
+
+      #login-form .remember-me input {
+        margin-right: 10px;
+      }
+
+      .error-message {
+        color: #ff4d4d;
+        background-color: #ffe6e6;
+        border: 1px solid #ff4d4d;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+      }
+      .success-message {
+        color: #4dff4d;
+        background-color: #e6ffe6;
+        border: 1px solid #4dff4d;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="login-form">
+      <h2>Log in</h2>
+      <form method="post" action="/Login" >
+        <input type="email" name="email" value="<%= email? email : '' %>" placeholder="Enter Your Email Address" required />
+        <input type="password" name="password" placeholder="Enter Your Password" required />
+        <span class="remember-me">
+          <input type="checkbox" id="remember-me" />
+          <label for="remember-me">Remember Me</label>
+        </span>
+        <button type="submit">Log in</button>
+      </form>
+      <% if(errorMessage) { %>
+        <div class="error-message">
+          <span><%= errorMessage %></span>
+        </div>
+      <% } %>
+      <a href="/Reset">Forgot Password?</a>
+    </div>
+  </body>
+</html>
