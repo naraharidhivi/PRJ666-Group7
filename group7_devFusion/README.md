@@ -1,36 +1,16 @@
 # PRJ666-Group7
 
-## Vercel Deployment
+## Render deployment 
 
-https://prj-666-group7.vercel.app/
+https://prj666.onrender.com/
 
 # DevFusion: iOS & Android
 
 The purpose of DevFusion is to provide aspiring students and professionals with a comprehensive platform for learning iOS development. It aims to address the inflexibility and high cost associated with conventional teaching methods by offering personalized, affordable, and flexible learning experiences.
 
 # Task and Progress Report Walkthrough
-
-1. **Introduction**
-
-   1. **Document Information**
-      This Software Requirements Specification (SRS) document is authored collaboratively by Kevin Christian, Devenkumar Patel, Sanya Khurana, and Dhivi Narahari. It serves as a comprehensive guide outlining the core objectives, benefits, and strategies for the DevFusion project.
-
-   2. **Document Conventions**
-      Text in red signifies exceptions or errors. Blue text indicates work in progress. Yellow highlights denote important points. Green text signifies recent additions. Italicized text denotes definitions. Strike-through text indicates deletions.
-
-   3. **Document Purpose**
-      The primary purpose of this document is to provide detailed insights into the DevFusion project's objectives, functionalities, and project stages throughout its designated timeline.
-
-   4. **Intended Audience**
-      The document targets a diverse audience, including aspiring students, professionals, professors, stakeholders, investors, and project teammates interested in iOS development and the DevFusion project.
-
-   5. **References**
-      References include textbooks, online resources, project management methodologies, software tools, and academic journals relevant to iOS development and educational technology.
-
-   6. **Group Agreement**
-      The project team, comprised of Kevin Christian, Devenkumar Patel, Sanya Khurana, and Dhivi Narhari, has collectively agreed to collaborate on the DevFusion project until the end of the semester. The team commits to adhering to the project timeline, meeting deadlines, and ensuring the quality of deliverables.
-
-2. Project Overview
+ 
+1. Project Overview
 
    1. **Project Proposal**
       DevFusion aims to address the challenges faced by aspiring iOS developers in accessing flexible, affordable, and personalized learning resources. The platform will offer an organized, user-friendly environment featuring curated content, videos, examinations, and progress tracking, revolutionizing the approach to teaching mobile app development.
@@ -60,37 +40,48 @@ The purpose of DevFusion is to provide aspiring students and professionals with 
 ## Task Updates
 
 **User Registration Module:**
-Completed the front-end design.
-Implemented backend validation for email uniqueness.
-Integrated email verification functionality.
-Pending: Testing and debugging.
+Completed
 
 **Password Reset Functionality:**
-Designed the frontend part of it and navigation is complted. Currently working on the backend part
+Completed
 
 **Course Content Management:**
-in-progress
+navigation and tracking completed
+contents added
 
 **Test Taking Module:**
-in-progress
+completed
 
 **Certificate generation:**
-frontend page creation is done, currently working on the downloading certificate and backend generation.
+certificate generation completed, working on doenloading certificate 
+
+**User Feedback**
+completed
 
 **Progress Overview:**
-So far, we have been focusing on the frontend part of the project. User registration and password resetting are completed, as well as the creation and navigation of the home page. We are currently working on the course contents and tests. Additionally, the feedback page has been created, and the submission functionality with the backend is in progress. Next, we will proceed with the backend development.
+Completed the "remember me" functionality
+User can continue from where they left 
+System can successfuly save the progress
+
+**Project Testing**
+completed
+
+
+** System Testing**
+
+|Functions                      |            Results                          |
+|-------------------------------|---------------------------------------------|
+|Welcome Page                   |              Pass                           |
+|Home Page                      |              Pass                           |
+|User Sign-in/registration      |              Pass                           |
+|User Login                     |              Pass                           |
+|Reset Password                 |              Pass                           |
+|User feedback for website      |              Pass                           |
+|Course contents page           |              Pass                           |
+|Final Test                     |              Pass                           |
+|Generating certificate         |              Pass                           |
 
 ## Next Steps
-
-**Testing and Quality Assurance:**
-Conduct comprehensive testing for all modules.
-Identify and resolve any bugs or issues.
-Ensure cross-browser compatibility and responsiveness.
-
-**Documentation and Training:**
-Prepare user documentation and tutorials.
-Create training materials for administrators.
-Conduct training sessions for end-users.
 
 **Deployment and Launch:**
 Finalize deployment strategy and server setup.
